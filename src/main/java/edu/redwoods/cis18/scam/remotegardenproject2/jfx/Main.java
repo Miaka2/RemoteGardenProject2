@@ -1,4 +1,4 @@
-package edu.redwoods.cis18.scam.remotegardenproject2;
+package edu.redwoods.cis18.scam.remotegardenproject2.jfx;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
@@ -21,6 +21,8 @@ import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+
+import edu.redwoods.cis18.scam.remotegardenproject2.be.MoistureAlertSystem;
 
 public class Main extends Application {
     private ArduinoConnector arduinoConnector;
@@ -180,11 +182,12 @@ public class Main extends Application {
         new Thread(() -> {
             while (true) {
                 int currentMoistureLevel = arduinoConnector.getMoistureLevel(); // Assuming this method returns moisture level
-                if (currentMoistureLevel < MoistureAlertSystem.DRY_THRESHOLD) {
+                if (currentMoistureLevel < MoistureAlertSystem.getDryThreshold()) {
                     showAlert(alertLabel, "Moisture level is too low for plant '" + plantName + "'. Please water it.");
-                } else if (currentMoistureLevel > MoistureAlertSystem.WET_THRESHOLD) {
+                } else if (currentMoistureLevel > MoistureAlertSystem.getWetThreshold()) {
                     showAlert(alertLabel, "Moisture level is too high for plant '" + plantName + "'. Consider reducing watering.");
                 }
+
                 try {
                     Thread.sleep(60000); // Check moisture level every minute
                 } catch (InterruptedException e) {
@@ -285,12 +288,6 @@ public class Main extends Application {
                 executor.shutdownNow();
             }
         }
-    }
-
-    // Inner class representing the Moisture Alert System
-    private static class MoistureAlertSystem {
-        private static final int DRY_THRESHOLD = 20; // can be removed to set thresholds within database per plant.
-        private static final int WET_THRESHOLD = 80; // can be removed to set thresholds within database per plant.
     }
 
     // Custom ListCell with a checkbox
