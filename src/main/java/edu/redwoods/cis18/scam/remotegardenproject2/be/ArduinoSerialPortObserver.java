@@ -1,10 +1,14 @@
 package edu.redwoods.cis18.scam.remotegardenproject2.be;
 
 
+import edu.redwoods.cis18.scam.remotegardenproject2.db.DatabaseManager;
 import jssc.SerialPort;
 import jssc.SerialPortException;
 import jssc.SerialPortEventListener;
 import jssc.SerialPortEvent;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class ArduinoSerialPortObserver {
 
@@ -52,7 +56,23 @@ public class ArduinoSerialPortObserver {
 		}
 
 		private void processLine(String line) {
-			System.out.println(line);
+			try {
+				// Parsing the line
+				String sensorType = line.substring(0, line.indexOf("(")).trim();
+				String[] rangeParts = line.substring(line.indexOf("(") + 1, line.indexOf(")")).split("-");
+				int maxRange = Integer.parseInt(rangeParts[1]);
+				int sensorValue = Integer.parseInt(line.split(": ")[1].trim());
+				double percentage = (double) sensorValue / maxRange * 100;
+
+				// Prepare timestamp
+				String formattedDateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+
+				// Insert data into the database
+				DatabaseManager.insert
+						(formattedDateTime, sensorType, sensorValue, percentage);   //RENAME method to interface with db
+			} catch (Exception e) {
+				System.out.println("Error processing line: " + e.getMessage());
+			}
 		}
 	}
 
