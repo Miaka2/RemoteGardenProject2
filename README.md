@@ -35,4 +35,10 @@ Feel free to fork, clone, and tinker. Pull requests that make the plants happier
 - Unchecked generics – because who really checks those anyway?
 - gui ugly af
 
+## Shit to maybe think about
+- gRPC
+- Spring Boot
+- MySQL (currently pursuing server solution)
+- JavaFX
+
 Happy coding. 🌱

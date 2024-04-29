@@ -4,14 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="838b7ad7-fb20-4cb2-8adb-37d37954e193" name="Changes" comment="OPERATIONAL&#10;**********&#10;&#10;PUSH:&#10;1:Restructure dir tree:&#10;-MOVED Main.java from&#10;   package edu.redwoods.cis18.scam.remotegardenproject2;&#10;to&#10;   package edu.redwoods.cis18.scam.remotegardenproject2.jfx;&#10;-Main.java Lines 185,187 changed from call to private field to calling public getters&#10;&#10;-De-Nested inner classes of Main.java; MoistureAlertSystem cut from Main.java&#10;&#10;-CREATED MoistureAlertSystem.java from inner class extracted from Main.java. Getters and Setters implemented.&#10;&#10;-CREATED CheckBoxListCell.java. Copied from Main.java. Encapsulatioon not yet complete. Removal of inner class CheckBoxListCell within Main.java class still operational. TODO Remove inner class CheckBoxListCell from Main.java and divert to CheckBoxListCell.java&#10;&#10;-CREATED ArduinoSerialPortObserver.java. ArduinoSerialPortObserver class receives raw data from Arduino. SerialPort object is created for COM4 (USB). Inside a try/catch, the SerialPort object's parameters are set and addEventListener method creates nested SerialPortReader object. Inner class SerialPortReader implements SerialPortEventListener interfacce from the jssc library and holds protected StringBuilder object. RXCHAR events trigger a try/catch that appends StringBuilder object until newline character is detected. processLine is called using appended StringBuilder object for argument. TODO: After DataBase is build; DELETE processLine method, IMPLEMENT methods to interface with DataBase, MODIFY Line44 to call DataBase methods.&#10;&#10;-CREATED DatabaseConfig.java. Placeholder. TODO: Interface with ArduinoSerialPortObserver.java Line44&#10;&#10;-CREATED ardur3.cpp. C++ file pushed to ArduinoUNOr3 controlling soil moisture sensor.  Initializes serial communication at 9600 baud rate. Sensor reading sent to USB once/sec&#10;&#10;-CREATED ui.Designer. mint :*&#10;&#10;-MODIFIED pom.xml. jssc library dependencies changed from org.scream3r to io.github.java-native. Version updated from 2.8.0 to 2.9.6&#10;&#10;-MODIFIED module-info.java. ADDED jssc Module Declaration. Updated opens and all exports to reflect current dir tree.&#10;&#10;THROWS:&#10;C:\Users\Gnomatic\IdeaProjects\RemoteGardenProject2\src\main\java\module-info.java&#10;Warning:(1, 21) Module name component 'cis18' should avoid terminal digits&#10;Warning:(1, 32) Module name component 'remotegardenproject2' should avoid terminal digits&#10;C:\Users\Gnomatic\IdeaProjects\RemoteGardenProject2\src\main\java\edu\redwoods\cis18\scam\remotegardenproject2\be\MoistureAlertSystem.java&#10;Warning:(11, 21) Method 'setDryThreshold(int)' is never used&#10;Warning:(19, 21) Method 'setWetThreshold(int)' is never used&#10;C:\Users\Gnomatic\IdeaProjects\RemoteGardenProject2\src\main\java\edu\redwoods\cis18\scam\remotegardenproject2\jfx\Main.java&#10;Warning:(29, 24) Field 'plantDetailsList' may be 'final'&#10;Warning:(160, 72) Parameter 'alertLabel' is never used&#10;Warning:(172, 21) Unchecked generics array creation for varargs parameter&#10;Warning:(192, 28) Call to 'Thread.sleep()' in a loop, probably busy-waiting&#10;Warning:(194, 23) Call to 'printStackTrace()' should probably be replaced with more robust logging&#10;Warning:(211, 43) Field 'simulator' may be 'final'&#10;Warning:(221, 21) Method 'stop()' is never used&#10;Warning:(244, 24) Field 'filePath' may be 'final'&#10;Warning:(246, 27) Field can be converted to a local variable">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/redwoods/cis18/scam/remotegardenproject2/db/Observer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/redwoods/cis18/scam/remotegardenproject2/db/Plants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/redwoods/cis18/scam/remotegardenproject2/db/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/redwoods/cis18/scam/remotegardenproject2/db/moisturePreference.java" afterDir="false" />
+    <list default="true" id="838b7ad7-fb20-4cb2-8adb-37d37954e193" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/redwoods/cis18/scam/remotegardenproject2/ard/ArduinoConnectorSimulator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/redwoods/cis18/scam/remotegardenproject2/db/DatabaseManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/redwoods/cis18/scam/remotegardenproject2/db/ProcessData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/redwoods/cis18/scam/remotegardenproject2/db/DatabaseConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/redwoods/cis18/scam/remotegardenproject2/db/DatabaseConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/redwoods/cis18/scam/remotegardenproject2/be/ArduinoSerialPortObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/redwoods/cis18/scam/remotegardenproject2/be/ArduinoSerialPortObserver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/redwoods/cis18/scam/remotegardenproject2/be/CheckBoxListCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/redwoods/cis18/scam/remotegardenproject2/jfx/CheckBoxListCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/redwoods/cis18/scam/remotegardenproject2/db/DatabaseConfig.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,7 +25,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -30,24 +32,10 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="Atticus-database-creation" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Lance241"
-  }
-}]]></component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="71a0fe93-2145-47cd-b380-f937cffe9b6c" />
-        <option name="url" value="https://github.com/Lance241/RemoteGardenProjectREAL.git" />
-      </UrlAndAccount>
-    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -61,7 +49,7 @@
   </component>
   <component name="MavenRunner">
     <option name="delegateBuildToMaven" value="true" />
-    <option name="jreName" value="openjdk-22" />
+    <option name="jreName" value="22" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="ProjectErrors" />
@@ -91,7 +79,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2991027&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.runner&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -113,19 +101,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="RemoteGardenProjectREAL" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="RemoteGardenProjectREAL" />
-      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -229,7 +204,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="main" />
+                        <option value="Atticus-database-creation" />
                       </list>
                     </value>
                   </entry>

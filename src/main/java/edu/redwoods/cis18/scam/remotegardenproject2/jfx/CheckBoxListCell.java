@@ -1,4 +1,4 @@
-package edu.redwoods.cis18.scam.remotegardenproject2.be;
+package edu.redwoods.cis18.scam.remotegardenproject2.jfx;
 
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListCell;
