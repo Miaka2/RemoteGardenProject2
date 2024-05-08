@@ -4,9 +4,10 @@ import java.sql.*;
 
 public class DatabaseManager {
 
-	private String dbUrl;
-	private String user;
-	private String password;
+	public String dbUrl;
+	public String user;
+	public String password;
+	private ResultSet resultSet;
 
 	public DatabaseManager(String url, String user, String password) {
 		this.dbUrl = url;
@@ -31,6 +32,10 @@ public class DatabaseManager {
 			e.printStackTrace();
 		}
 	}
+	public ResultSet getResultSet() {
+
+		return resultSet;
+	}
 
 	private void  insertDataIntoDB(String timestamp, String sensorType, int moistureLevel, double percentage) {
 		String sql = "INSERT INTO SoilMoisture (timestamp, sensor_type, moisture_level, percentage) VALUES (?, ?, ?, ?)";
@@ -45,6 +50,7 @@ public class DatabaseManager {
 			System.out.println("Error inserting data: " + e.getMessage());
 		}
 	}
+
 
 	//needs more methods for data processing and database interfacing and information collation and other such thingies
 }
